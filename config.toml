@@ -1,0 +1,12 @@
+baseURL = "/"
+languageCode = "en-us"
+theme = "learn"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+showVisitedLinks = true
+disableBreadcrumb = false
+disableNextPrev = false
+themeVariant = "red"
