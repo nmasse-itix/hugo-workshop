@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Exit on any error
+set -e
+
+hugo_version=0.54.0
+hugo_bin_name=hugo_${hugo_version}_Linux-64bit.tar.gz
+hugo_bin_url=https://github.com/gohugoio/hugo/releases/download/v${hugo_version}/${hugo_bin_name}
+
+# Download Hugo
+curl -s -o "/tmp/${hugo_bin_name}" -L  "${hugo_bin_url}"
+
+# Install Hugo
+tar -C /tmp -xf "/tmp/${hugo_bin_name}" hugo
+
+# Build the website
+mv /tmp/src/ /tmp/git
+/tmp/hugo -s /tmp/git
+ln -s /tmp/git/public /tmp/src
+
+# Call the default S2I assemble script
+exec /usr/libexec/s2i/assemble
