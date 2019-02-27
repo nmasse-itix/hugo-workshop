@@ -10,3 +10,5 @@ showVisitedLinks = true
 disableBreadcrumb = false
 disableNextPrev = false
 themeVariant = "red"
+editURL = "https://github.com/nmasse-itix/hugo-workshop/edit/master/content/"
+
